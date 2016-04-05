@@ -1,0 +1,69 @@
+package javaapplication2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+
+public class JavaApplication2 {
+
+    public static BufferedReader in;
+    
+    public static void main(String[] args) throws IOException {
+        in = new BufferedReader(new InputStreamReader(System.in));
+        String line = in.readLine();
+        StringTokenizer st ;
+        while(!line.equals("#")){
+            st = new StringTokenizer(line, " ");
+            int num1 =0;
+            int num2=0;
+            int num3=0;
+            char op = ' ';
+            String output ="Wrong";
+            String[] data = line.split(" ");
+            int i = 0;
+            num1 = Integer.parseInt(data[0]);
+            op = data[1].charAt(0);
+            num2 = Integer.parseInt(data[2]);
+            num3 = Integer.parseInt(data[4]);
+            
+            /*
+            for(int i = 0;i<line.length();i++){
+                if(i==0)
+                    num1 = Integer.parseInt(st.nextToken());
+                else if(i==2)
+                    op = st.nextToken().charAt(0);
+                else if(i==4)
+                    num2 = Integer.parseInt(st.nextToken());
+                else if(i==8)
+                    num3 = Integer.parseInt(st.nextToken());
+                else if (i==7)
+                    st.nextToken().charAt(0);
+            }
+            */
+            switch(op){
+            case '+':
+                      if(num1+num2==num3)
+                        output = "Correct";
+                      break;
+            case'-':      
+                      if(num1-num2==num3)
+                        output = "Correct";
+                      break;
+            case'*':      
+                      if(num1*num2==num3)
+                        output = "Correct";
+                      break;
+            default:
+                      break;
+           
+        }
+            System.out.println(output);
+            line = in.readLine();           
+        }
+    
+    }
+
+    
+}
